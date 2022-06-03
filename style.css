@@ -36,3 +36,16 @@ body{
     width: 70px;
     margin-right: 10px;
 }
+
+.container .coin-price .logo img{
+    width: 100%;
+}
+
+.container .coin-price div{
+    display: block;
+}
+
+.container .coin-price div h1{
+    font-size: 20px;
+    font-weight: 600;
+}
