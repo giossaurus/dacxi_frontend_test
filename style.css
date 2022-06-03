@@ -5,13 +5,36 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background: #232222
+
 }
 
-body{
+#body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+#header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 5em;
+    margin-bottom: -45em;
+}
+
+#header h1{
+    font-size: 48px;
+    font-weight: 600;
+    animation: flow 30s ease-in-out infinite;
+    background: linear-gradient(-60deg, #904e95, #904e95, #e73c7e, #ee7752);
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+        background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .container{
@@ -19,6 +42,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    border-color: linear-gradient(to right, #b861c6 0%,#ffc7c7 100%);
 }
 
 .container .coin-price{
@@ -29,6 +53,11 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 3px #ccc;
     margin: 7px;
+}
+
+.container .coin-price:hover{
+    cursor: pointer;
+    border: 1px solid #b861c6;
 }
 
 .container .coin-price .logo{
@@ -47,5 +76,98 @@ body{
 .container .coin-price div h1{
     font-size: 20px;
     font-weight: 600;
+    color: #f4f1f2;
 }
 
+
+footer{
+    margin-top: 28em;
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0px;
+    margin: 5em;
+}
+
+footer h4{
+    font-size: 18px;
+    padding-bottom: 20px;
+    font-weight: 600;
+    animation: flow 30s ease-in-out infinite;
+    background: linear-gradient(-60deg, #904e95, #904e95, #e73c7e, #ee7752);
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+        background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer p{
+    font-size: 14px;
+    margin: 0 0 8px 0;
+    color: #fff;
+}
+
+footer a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+footer .follow{
+    margin-top: 20px;
+}
+
+footer .follow i{
+    color: #fff;
+    padding-right: 4px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+footer .install .row img{
+    border: 1px solid #b861c6;
+    border-radius: 6px;
+}
+
+footer .install img{
+    margin: 10px 0 15px 0;
+}
+
+footer .follow i:hover,
+footer a:hover{
+    color: #b861c6;
+}
+
+footer .copyright{
+    margin-top: 4em;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes flow{
+    0%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0 50%;
+    }
+}
+
+@media (max-width:799px) {
+
+
+}
