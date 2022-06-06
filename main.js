@@ -39,8 +39,23 @@ axios.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,lu
     
 })
 
-setInterval(function() {
-    axios.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,luna-wormhole,cosmos,dacxi&vs_currencies=usd").then(response => {
+/* document.getElementById("searchButton").addEventListener("click", () => {
+    const inputDate = document.getElementById("dateSearch").value 
+    // inputDate estará no formato aaaa-mm-dd, converter pra unix
+    const unixDate = (new Date(inputDate).getTime()/1000)
+
+    axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=${unixDate}&to=${unixDate + 86400}`).then(response => {
+        console.log(response.data)
+    })
+
+}) */
+
+axios.get("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?date=20-12-2021").then(response => {
+    console.log(`API Response: ${JSON.stringify(response.data)}`)
+})
+
+setInterval(async function() {
+    const response = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,luna-wormhole,cosmos,dacxi&vs_currencies=usd")
 
     currBtcPrice = response.data.bitcoin.usd,
     currDacxiPrice = response.data.dacxi.usd,
@@ -59,5 +74,4 @@ setInterval(function() {
     prevEthPrice = response.data.ethereum.usd,
     prevAtomPrice = response.data.cosmos.usd,
     prevLuncPrice = response.data["luna-wormhole"].usd;
-    
-})},5000)
+},5000)
