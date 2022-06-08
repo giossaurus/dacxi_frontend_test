@@ -75,3 +75,17 @@ setInterval(async function() {
     prevAtomPrice = response.data.cosmos.usd,
     prevLuncPrice = response.data["luna-wormhole"].usd;
 },5000)
+
+let myCoinData = []
+function getDataFromId( coinId ){
+  fetch(`https://api.coingecko.com/api/v3/coins/bitcoin%2C%20dacxi%2C%20ethereum%2C%20cosmos%2C%20luna-wormhole/market_chart?vs_currency=usd&days=1%2C7%2C30`)
+     .then(response => response.json())
+     .then(data => { 
+         myCoinData.push(data.prices[0][1])
+         myCoinData.push(data.market_caps[0][1])
+         myCoinData.push(data.total_volumes[0][1])
+})
+}
+
+getDataFromId( '' )
+console.log(myCoinData)
