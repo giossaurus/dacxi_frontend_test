@@ -208,6 +208,14 @@ body{
     color: #f4f1f2;
 }
 
+.chart-container{
+    display: flex;
+    padding-top: 5rem;
+    margin: auto;
+    justify-content: center;
+    height: 40vh;
+    width: 80vw;
+}
 
 footer{
     margin-top: 28em;
@@ -292,6 +300,11 @@ footer .copyright{
     100%{
         background-position: 0 50%;
     }
+}
+
+@keyframes fading {
+    0% { color: white; }
+    100% { color: rgb(220, 206, 17); }
 }
 
 @media (max-width:799px) {

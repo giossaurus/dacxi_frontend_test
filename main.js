@@ -48,7 +48,12 @@ setInterval(async function() {
     currAtomPrice = response.data.cosmos.usd,
     currLuncPrice = response.data["luna-wormhole"].usd;
 
-    if(currBtcPrice !== prevBtcPrice) btc.innerHTML = "$" + currBtcPrice; 
+    if(currBtcPrice !== prevBtcPrice) {
+        btc.innerHTML = "$" + currBtcPrice;
+        btc.animate([
+            {}
+        ]) 
+    }    
     if(currDacxiPrice !== prevDacxiPrice) dacxi.innerHTML = "$" + currDacxiPrice;
     if(currEthPrice !== prevEthPrice) eth.innerHTML = "$" + currEthPrice;
     if(currAtomPrice !== prevAtomPrice) atom.innerHTML = "$" + currAtomPrice;
@@ -59,40 +64,35 @@ setInterval(async function() {
     prevEthPrice = response.data.ethereum.usd,
     prevAtomPrice = response.data.cosmos.usd,
     prevLuncPrice = response.data["luna-wormhole"].usd;
+
+
 },5000)
 
-let myCoinData = []
+let myCoinData = {
+    bitcoin: [],
+    dacxi: [],
+    ethereum: [],
+    cosmos: [],
+    "luna-wormhole":[]
+}
+
 const coinIds = ['bitcoin', 'dacxi', 'ethereum', 'cosmos', 'luna-wormhole']
 
 async function getData(){
   for (let coin of coinIds){
     await fetchCoinDataById(coin)
   }
-}
 
-async function fetchCoinDataById( coinId ){
-    return fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=daily`)
-    .then(response => response.json())
-    .then(data => { 
-        myCoinData.push(data.prices[0][1])
-        myCoinData.push(data.market_caps[0][1])
-        myCoinData.push(data.total_volumes[0][1])
-        console.log(`fetching data for ${coinId}: ${JSON.stringify(data, null, 2)}`)
-})
-}
-
-getData()
-console.log(myCoinData)
-
-const ctx = document.getElementById('chart').getContext('2d');
+  const ctx = document.getElementById('chart').getContext('2d');
         const xlabels = [];
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['1 day ago', '7 days ago', '30 days ago'],
+                labels: ['12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1', 'Today'],
                 datasets: [{
-                    label: 'Coin History',
-                    data: [myCoinData],
+                    label: 'Bitcoin',
+                    data: myCoinData.bitcoin,
+                    tension: 0.3,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -110,13 +110,128 @@ const ctx = document.getElementById('chart').getContext('2d');
                         'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
-                }]
+                },
+                {
+                    label: 'Dacxi',
+                    data: myCoinData.dacxi,
+                    tension: 0.3,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Ethereum',
+                    data: myCoinData.ethereum,
+                    tension: 0.3,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Cosmos',
+                    data: myCoinData.cosmos,
+                    tension: 0.3,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Luna',
+                    data: myCoinData["luna-wormhole"],
+                    tension: 0.3,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }   
+            ]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        type: "logarithmic",
+                        
+                    },
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display:true,
+                            text: 'Months ago'
+                        }
                     }
                 }
             }
         });
+}
+
+
+async function fetchCoinDataById( coinId ){
+    return fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=84&interval=daily`)
+    .then(response => response.json())
+    .then(data => { 
+        for (let i=0; i <= 84; i+=7){
+            myCoinData[coinId].push(data.prices[i][1])
+        }
+
+        console.log(`fetching data for ${coinId}: ${JSON.stringify(data, null, 2)}`)
+})
+}
+
+getData()
+console.log(myCoinData)
