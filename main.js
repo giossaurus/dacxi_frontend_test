@@ -39,21 +39,6 @@ axios.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,lu
     
 })
 
-/* document.getElementById("searchButton").addEventListener("click", () => {
-    const inputDate = document.getElementById("dateSearch").value 
-    // inputDate estará no formato aaaa-mm-dd, converter pra unix
-    const unixDate = (new Date(inputDate).getTime()/1000)
-
-    axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=${unixDate}&to=${unixDate + 86400}`).then(response => {
-        console.log(response.data)
-    })
-
-}) */
-
-axios.get("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?date=20-12-2021").then(response => {
-    console.log(`API Response: ${JSON.stringify(response.data)}`)
-})
-
 setInterval(async function() {
     const response = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,luna-wormhole,cosmos,dacxi&vs_currencies=usd")
 
@@ -77,15 +62,61 @@ setInterval(async function() {
 },5000)
 
 let myCoinData = []
-function getDataFromId( coinId ){
-  fetch(`https://api.coingecko.com/api/v3/coins/bitcoin%2C%20dacxi%2C%20ethereum%2C%20cosmos%2C%20luna-wormhole/market_chart?vs_currency=usd&days=1%2C7%2C30`)
-     .then(response => response.json())
-     .then(data => { 
-         myCoinData.push(data.prices[0][1])
-         myCoinData.push(data.market_caps[0][1])
-         myCoinData.push(data.total_volumes[0][1])
+const coinIds = ['bitcoin', 'dacxi', 'ethereum', 'cosmos', 'luna-wormhole']
+
+async function getData(){
+  for (let coin of coinIds){
+    await fetchCoinDataById(coin)
+  }
+}
+
+async function fetchCoinDataById( coinId ){
+    return fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=daily`)
+    .then(response => response.json())
+    .then(data => { 
+        myCoinData.push(data.prices[0][1])
+        myCoinData.push(data.market_caps[0][1])
+        myCoinData.push(data.total_volumes[0][1])
+        console.log(`fetching data for ${coinId}: ${JSON.stringify(data, null, 2)}`)
 })
 }
 
-getDataFromId( '' )
+getData()
 console.log(myCoinData)
+
+const ctx = document.getElementById('chart').getContext('2d');
+        const xlabels = [];
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1 day ago', '7 days ago', '30 days ago'],
+                datasets: [{
+                    label: 'Coin History',
+                    data: [myCoinData],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
