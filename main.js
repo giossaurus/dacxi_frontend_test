@@ -16,7 +16,6 @@ let prevEthPrice = 0;
 let prevAtomPrice = 0;
 let prevLuncPrice = 0; 
 
-
 axios.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,luna-wormhole,cosmos,dacxi&vs_currencies=usd").then(response => {
 
     currBtcPrice = response.data.bitcoin.usd,
@@ -235,3 +234,19 @@ async function fetchCoinDataById( coinId ){
 
 getData()
 console.log(myCoinData)
+
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+
+if (bar) {
+    bar.addEventListener('click',() => {
+        nav.classList.add('active');
+    })
+}
+
+if (close) {
+    close.addEventListener('click',() => {
+        nav.classList.remove('active');
+    })
+}

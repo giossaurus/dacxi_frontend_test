@@ -30,16 +30,18 @@ body{
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    margin-top: 5em;
-    margin-bottom: -45em;
-    
+    margin-bottom: -45rem;
 }
 
 #header .logo{
-    margin-top: -6em;
-    margin-bottom: 2em;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
     width: 160px;
     height: auto;
+}
+
+#header .h1-mobile{
+    display: none;
 }
 
 #navbar {
@@ -91,18 +93,15 @@ body{
     align-items: center;
 }
 
-#mobile i{
-    color: #fff;
-}
 
 #close{
     display: none;
 }
 
 #header h1{
-    margin-top: 3em;
-    margin-bottom: -1.5em;
-    font-size: 32px;
+    margin-top: 2rem;
+    padding-bottom: 0.25rem;
+    font-size: 42px;
     font-weight: 600;
     animation: flow 30s ease-in-out infinite;
     background: linear-gradient(-60deg, #904e95, #904e95, #e73c7e, #ee7752);
@@ -120,7 +119,6 @@ body{
     transform: translate(-50%, -50%);
     background:#e3e6f3;
     height: 40px;
-    padding: px;
     padding-right: 0.2px;
     border-radius: 40px;
     display: flex;
@@ -133,7 +131,7 @@ body{
     background: none;
     outline: none;
     padding: 0;
-    color: #904e95;
+    color: #e73c7e;
     font-size: 18px;
     line-height: 40px;
     width: 0;
@@ -142,7 +140,7 @@ body{
 }
 
 ::-webkit-input-placeholder{
-    color: #b861c6;
+    color: #e73c7e;
 }
 
 .search-btn{
@@ -156,20 +154,21 @@ body{
     transition: 0.5s;
 }
 
+
 .search-box:hover > .search-txt{
     width: 240px;
     padding: 0 6px;
 }
 
 .search-box:hover > .search-btn{
-    background: #b861c6;
+    background: #e73c7e;
 }
 
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 3rem;
     margin-top: 3rem;
     border-radius: 5px;
     border-color: linear-gradient(to right, #b861c6 0%,#ffc7c7 100%);
@@ -214,7 +213,7 @@ body{
     margin: auto;
     justify-content: center;
     height: 40vh;
-    width: 80vw;
+    width: 70vw;
 }
 
 footer{
@@ -302,11 +301,6 @@ footer .copyright{
     }
 }
 
-@keyframes fading {
-    0% { color: white; }
-    100% { color: rgb(220, 206, 17); }
-}
-
 @media (max-width:799px) {
     #navbar {
         display: flex;
@@ -319,8 +313,8 @@ footer .copyright{
         height: 100vh;
         width: 300px;
         background-color: #e3e6f3;
-        box-shadow: 0 40px 60px rgba(255, 255, 255, 0.3);
-        padding: 80px 0 0 10px;
+        padding: 60px 0 0 50px;
+        padding-top: 80px;
         transition: 0.3s;
     }
 
@@ -334,36 +328,60 @@ footer .copyright{
 
     #mobile{
         display: flex;
-        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
     }
 
     #mobile i{
-        color: #ffffff;
-        font-size: 24px;
+        font-size: 36px;
         padding-left: 20px;
+        padding-bottom: 60px;
+        color: #e3e6f3;
     }
 
     #close{
         display: initial;
         position: absolute;
+        padding-top: 20px;
         top: 30px;
         left: 30px;
-        color: #fffbfb;
+        color: #e73c7e;
         font-size: 24px;
+    }
+
+    .logo{
+        display:none
+    }
+
+    #header .h1-mobile{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 60px;
+        font-size: 36px;
     }
 
     #header h1{
         font-size: 26px;
         text-align: center;
     }
-
+    
+    .search-box{
+        display: none;
+    }
+    .search-txt{
+        display: none;
+    }
+    .search-btn{
+        display: none;
+    }
     .search-wrapper{
-        display:flex;
-        flex-direction: column;
-        gap: .25rem;
+        display:none;
     }
 
     input{
+
         font-size: 1rem;
     }
 
@@ -372,7 +390,8 @@ footer .copyright{
         display: flex;
         flex-direction: column;
         align-content: space-between;
-        margin: 40px;
+        margin: 5rem;
+        padding-top: 1em
     }
 
     .coin-price{
@@ -380,10 +399,32 @@ footer .copyright{
         height: 30vh;
     }
 
+    .chart-container{
+    display: flex;
+    padding-top: 0.25rem;
+    justify-content: center;
+    width: fit-content;
+}
+
     footer {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    footer .follow i{
+        padding-right: 4px;
+        cursor: pointer;
+    }
+    
+    
+    footer .install img{
+        margin: 10px 0 15px 0;
+    }
+    
+    footer .copyright{
+        width: 100%;
+        text-align: center;
     }
 
 }
