@@ -25,7 +25,7 @@
 <img src="https://github.com/giossaurus/dacxi_frontend_test/blob/main/assets/img/s1.png">
   </div>
 <div align="center">
-<img height=694px width=484 src="https://github.com/giossaurus/dacxi_frontend_test/blob/main/assets/img/s2.png">
+<img height=686px width=484 src="https://github.com/giossaurus/dacxi_frontend_test/blob/main/assets/img/s2.png">
 <img src="https://github.com/giossaurus/dacxi_frontend_test/blob/main/assets/img/s3.png">
 </div>
 
