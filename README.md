@@ -21,7 +21,7 @@
 <h2 align="center"> :bookmark_tabs: Proposta do projeto </h2>
 <p>Implementação do real time ao mostrar o preço das moedas, retornando para o usuário o preço das moedas, bem como suas variações onde apenas em caso de variação a API é consumida para fazer com que o processo seja fluido e que a página não precise ser carregada novamente. Para o gráfico utilizei a biblioteca de Javascript chamada Chart.js, onde foi possível incluir um gráfico animado e que mostra um histórico de variações das moedas para fins de visualização das oscilações semanais, no caso do site, o gráfico mostra as variações de até 12 semanas atrás.<p><br>
 
-<p><em> API CoinGecko: https://www.artofmtg.com](https://www.coingecko.com/en/api/documentation <em><br>
+<p><em> API CoinGecko: https://www.coingecko.com/en/api/documentation <em><br>
  
 <em> Chart.js: https://www.chartjs.org/<em></h3>
 <p><br>
