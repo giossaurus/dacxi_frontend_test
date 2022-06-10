@@ -79,7 +79,7 @@ const coinIds = ['bitcoin', 'dacxi', 'ethereum', 'cosmos', 'luna-wormhole']
 
 async function getData(){
   for (let coin of coinIds){
-    await fetchCoinDataById(coin)
+    fetchCoinDataById(coin)
   }
 
   const ctx = document.getElementById('chart').getContext('2d');

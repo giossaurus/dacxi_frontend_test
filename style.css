@@ -397,7 +397,8 @@ footer .copyright{
     display: flex;
     padding-top: 0.25rem;
     justify-content: center;
-    width: fit-content;
+    width: 90vw;
+    margin: auto;
 }
 
     footer {
