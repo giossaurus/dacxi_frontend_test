@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* :root{
-    --background-color: #232222;
-    --text-color: #1a1a1a;
-    --button-background-color:#988afb;
-} */
-
 *{
     margin: 0;
     padding: 0;
@@ -35,7 +29,7 @@ body{
 
 #header .logo{
     margin-top: 0.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     width: 160px;
     height: auto;
 }
@@ -48,7 +42,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -3em;
+    margin-top: -2.5em;
 }
 
 #navbar li{
