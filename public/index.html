@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Mirror</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    
+
+</head>
+<body>
+
+    <section id="header">
+        <a href="#"><img src="assets/img/cryptomirror_logo.png" class="logo" alt="logo"></a>
+        <h1 class="h1-mobile">Crypto Mirror</h1>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="#">Cryptocurrencies</a></li>
+                <li><a href="#">Exchanges</a></li>
+                <li><a href="#">NFT</a></li>
+                <li><a href="#">Learn Crypto</a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+            
+        </div>
+
+        <div id="mobile">
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+        
+        <h1>Your friendly crypto price tracking.</h1>
+    </section>
+    
+    <section id="body">
+        <div class="search-box">
+            <input type="text" class="search-txt" placeholder="Look for coins here">
+            <a href="#" class="search-btn">
+               <img src="assets/img/searchico.png" alt="Search" height="20" width="20" class="img-btn"> 
+            </a>
+        </div>
+        
+    </section>
+
+    <div class="container">
+        <div class="coin-price">
+            <div class="logo"><img src="assets/img/bitcoin.png" alt=""></div>
+            <div>
+                <h1><span id="bitcoin">$</span></h1>
+                <h1>Bitcoin</h1>
+            </div>
+        </div>
+
+        <div class="coin-price">
+            <div class="logo"><img src="assets/img/dacxi.png" alt=""></div>
+            <div>
+                <h1><span id="dacxi">$</span></h1>
+                <h1>DACXI</h1>
+            </div>
+        </div>
+
+        <div class="coin-price">
+            <div class="logo"><img src="assets/img/eth.png" alt=""></div>
+            <div>
+                <h1><span id="ethereum">$</span></h1>
+                <h1>Ethereum</h1>
+            </div>
+        </div>
+
+        <div class="coin-price">
+            <div class="logo"><img src="assets/img/atom.png" alt=""></div>
+            <div>
+                <h1><span id="cosmos">$</span></h1>
+                <h1>Cosmos</h1>
+            </div>
+        </div>
+
+        <div class="coin-price">
+            <div class="logo"><img src="assets/img/luna.png" alt=""></div>
+            <div>
+                <h1><span id="luna-wormhole">$</span></h1>
+                <h1>Luna</h1>
+            </div>
+        </div>
+    </div>
+    <template>
+        <div class="coin-price">
+            <div class="logo"><img src="assets/img/luna.png" alt=""></div>
+            <div>
+                <h1><span id="luna-wormhole">$</span></h1>
+                <h1>Luna</h1>
+            </div>
+        </div>
+    </template>
+    </section>
+
+    <div class="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <footer>
+        <div class="col">
+        
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icons-social">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col">
+            <h4>About us</h4>
+            <a href="#">About us</a>
+            <a href="#">Careers</a>
+            <a href="#">Company Blog</a>
+            <a href="#">Advertising</a>
+            <a href="#">Request Form</a>
+            <a href="#">FAQ</a>
+        </div>
+
+        <div class="col">
+            <h4>Explore</h4>
+            <a href="#">Bitcon Price</a>
+            <a href="#">Ethereum Price</a>
+            <a href="#">DeFi Coins</a>
+            <a href="#">Metaverse Coins</a>
+            <a href="#">NFT</a>
+        </div>
+        <div class="col install">
+            <h4>Download the app</h4>
+            <p>Available on the App Store and Google Play.</p>
+            <div class="row">
+                <img src="assets/img/app.jpg" alt="">
+                <img src="assets/img/play.jpg" alt="">
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&#169; 2022, Crypto Mirror - Developed by Giovanni Della Dea </p>
+        </div>
+        
+
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
